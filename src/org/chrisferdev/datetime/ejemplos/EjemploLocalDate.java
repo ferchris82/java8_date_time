@@ -3,7 +3,9 @@ package org.chrisferdev.datetime.ejemplos;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.TextStyle;
 import java.time.temporal.ChronoUnit;
+import java.util.Locale;
 
 public class EjemploLocalDate {
     public static void main(String[] args) {
@@ -11,7 +13,14 @@ public class EjemploLocalDate {
         LocalDate fechaActual = LocalDate.now();
         System.out.println("fechaActual = " + fechaActual);
         System.out.println("Día: " + fechaActual.getDayOfMonth());
-        System.out.println("Mes: " + fechaActual.getMonth());
+        Month mes = fechaActual.getMonth();
+        System.out.println("Mes: " + mes);
+        System.out.println("Número del mes: " + mes.getValue());
+        System.out.println("Mes español: " + mes.getDisplayName(TextStyle.FULL, new Locale("es", "ES")));
+
+        DayOfWeek diaSemana = fechaActual.getDayOfWeek();
+        System.out.println("Número del día: " + diaSemana.getValue());
+        System.out.println("Nombre del día: " + diaSemana.getDisplayName(TextStyle.FULL, new Locale("es", "ES")));
         System.out.println("Año: " + fechaActual.getYear());
         System.out.println("Día del año: " + fechaActual.getDayOfYear());
         System.out.println("Era: " + fechaActual.getEra());
